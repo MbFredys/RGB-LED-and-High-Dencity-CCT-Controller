@@ -1,0 +1,33 @@
+﻿Designator,Quantity,Value,Footprint,Package,MPN,DNP,Mount_Type
+C1,1,1000uF,CAPPRD500W60D1000H1300,,,,tht
+"C10, C9",2,180uF,CAP_EEEFNE181XUV,,,,smt
+C11,1,10uF,C_0603_1608Metric,,,,smt
+"C12, C14",2,0.1uF,C_0603_1608Metric,,,,smt
+"C13, C15",2,22pF,C_0603_1608Metric,,,,smt
+"C16, C6, C7",3,1uF,C_0603_1608Metric,,,,smt
+"C2, C3, C4",3,15uF,CAPPRD200W45D500H700,,,,tht
+C5,1,0.47uF,C_0805_2012Metric,,,,smt
+C8,1,0.01uF,CAPRR750W60L1030T440H750,,,,tht
+D1,1,SS54,D_SMC,,,,smt
+"D2, D5",2,SMBJ12A,D_SMB,,,,smt
+D3,1,SMAJ5.0A,D_SMA,,,,smt
+D4,1,SS14,D_SMA,,,,smt
+D6,1,MBR735,TO-220-2_Vertical_KA,,,,tht
+F1,1,Polyfuse,FUSC7351X170N,,,,smt
+F2,1,Polyfuse,FUSC1608X100N,,,,smt
+J1,1,RGB_Strip,"PhoenixContact_MCV_1,5_4-G-5.08_1x04_P5.08mm_Vertical",,,,tht
+J2,1,CW/WW_Strip,"PhoenixContact_MCV_1,5_3-G-5.08_1x03_P5.08mm_Vertical",,,,tht
+J3,1,CON_12VDC_IN,MPD_EJ503A,,,,tht
+L1,1,22uH,IND_XAL6060-223MEB,,,,smt
+P1,1,USB_C_Plug_USB2.0,USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal,,,,smt
+"Q1, Q2, Q3, Q4, Q5",5,IRLZ44N,TO254P1524X483-4N,,,,smt
+R1,1,5.1k,R_0603_1608Metric,,,,smt
+"R10, R12, R13, R4, R9",5,10k,R_0603_1608Metric,,,,smt
+"R11, R2, R3, R7, R8",5,100,R_0402_1005Metric,,,,smt
+"R14, R15",2,22,R_0402_1005Metric,,,,smt
+R5,1,100k,R_0603_1608Metric,,,,smt
+R6,1,100k,R_0805_2012Metric,,,,smt
+SW1,1,uC_Reset,SW_Push_SPST_NO_Alps_SKRK,,,,smt
+U1,1,LM2678T-ADJ,TO127P1041X469X2199-7N,,,,tht
+U2,1,TPS7A20xxxDQN,Texas_X2SON-4_1x1mm_P0.65mm,,,,smt
+U3,1,ESP32-C3-WROOM-02,ESP32-C3-WROOM-02,,,,smt
