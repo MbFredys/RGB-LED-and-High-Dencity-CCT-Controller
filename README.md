@@ -1,78 +1,56 @@
-# PCB‑RGB+CCT‑LED‑Controller
+# RGB + CCT LED Controller
+
 [![License: CERN-OHL-W-2.0](https://img.shields.io/badge/license-CERN--OHL--W%202.0-blue.svg)](https://ohwr.org/projects/cern-ohl/wikis/CERN-OHL-version-2)
 
-This is a compact high‑density LED strip controller PCB design that enables professional‑grade control of RGB and CCT lighting with the following features:
+Five-channel RGB and tunable-white LED-controller PCB based on the ESP32-C3.
 
-1. 🎛️ Drives 5 independent channels (RGB + Warm White + Cool White) up to 2A each  
-2. 📶 WiFi and Bluetooth connectivity via **ESP32‑C3‑WROOM‑02** microcontroller  
-3. 🔌 USB‑C connector for programming and optional 5V logic power input  
-4. ⚡ Efficient **LM2678T‑ADJ** buck converter (12V → 5V) for RGB LED supply  
-5. 🔋 Stable **TPS7A20 LDO** (5V → 3.3V) for ESP32 logic power  
-6. 🔒 Robust protection with polyfuse, Schottky diodes, and TVS surge suppressors  
-7. 🔧 Low‑side switching with **IRLZ44N MOSFETs** for reliable high‑current control  
-8. 🔗 Dedicated connectors: 4‑pin (5V, R, G, B) and 3‑pin (12V, CW, WW) for LED strips  
-9. 🛡️ Ground separation using **Net‑Tie** between GND_PWR and GND_LOGIC for noise isolation  
+> **Project status:** Design and manufacturing documentation completed. The PCB has not been fabricated, thermally characterized, or electrically validated under load.
 
-## Usage
+## Project objective
 
-To use the RGB+CCT LED controller, follow these steps:
+The project explores a compact controller capable of driving RGB, warm-white, and cool-white LED channels while integrating wireless control, local power conversion, and USB-C programming.
 
-1. Connect a **12V / 5A power supply** to the input connector  
-2. Plug LED strips into the 4‑pin RGB (5V) and/or 3‑pin CCT (12V) outputs  
-3. Program the ESP32‑C3 via the **USB‑C** port  
-4. Configure WiFi/Bluetooth for wireless control  
-5. Send PWM commands to adjust brightness and color temperature in real time  
+## Hardware architecture
 
-The device ensures stable operation with efficient power conversion and robust protection, making it suitable for smart lighting, architectural projects, and IoT‑based illumination systems.
+- **Controller:** ESP32-C3-WROOM-02
+- **Outputs:** Five low-side PWM channels: R, G, B, warm white, and cool white
+- **Switching devices:** IRLZ44N MOSFETs
+- **Power input:** 12 V nominal
+- **Conversion:** LM2678T-ADJ buck stage and TPS7A20 3.3 V regulation
+- **Programming:** USB-C interface
+- **Protection:** Input fuse and transient-protection components
+- **Connections:** Dedicated RGB and CCT output connectors
 
-## Getting Started
+## Engineering work
 
-To get started with the RGB+CCT LED Controller PCB design, follow these steps:
+- Defined the functional and power architecture
+- Selected the controller, switching devices, regulators, and protection components
+- Developed the schematic and PCB layout in KiCad
+- Separated high-current and logic routing
+- Prepared the BOM and manufacturing documentation
 
-1. Clone this repository to your local machine  
-2. Open the PCB design files in **KiCad**  
-3. Review the schematic and layout – pay special attention to:  
-   - RF antenna keep‑out zone for ESP32‑C3  
-   - Power distribution between 12V, 5V, and 3.3V rails  
-   - Placement of MOSFETs near LED connectors  
-   - Net‑Tie connection between GND_PWR and GND_LOGIC  
-4. Send the files to a PCB manufacturer for fabrication  
+## Key design considerations
 
-## Hardware Setup
+- MOSFET conduction losses and gate drive at 3.3 V
+- Copper width, connector rating, and total current distribution
+- Regulator thermal performance
+- PWM return-current paths
+- Bulk capacitance near LED outputs
+- ESP32 antenna clearance and noise coupling
 
-After receiving your PCBs, solder components in this recommended order:
+## Validation still required
 
-1. Power input section (fuse, diodes, TVS, bulk capacitors)  
-2. Buck converter **LM2678T‑ADJ** and LDO **TPS7A20**  
-3. ESP32‑C3‑WROOM‑02 module  
-4. IRLZ44N MOSFETs and gate resistors  
-5. Passive components and connectors (USB‑C, LED outputs)  
-6. Program the ESP32‑C3 via USB‑C  
-7. Connect LED strips and test each channel  
+Physical testing is required to establish:
 
-## Contributing
+- Safe continuous current per channel
+- MOSFET and regulator temperatures
+- Voltage-drop and connector performance
+- PWM behavior with representative LED strips
+- Wireless performance during switching
+- Protection response and EMC/EMI behavior
 
-If you would like to contribute to the RGB+CCT LED Controller project, please follow these steps:
-
-1. Fork this repository  
-2. Create a feature branch (`git checkout -b feature/improvement`)  
-3. Make your enhancements – consider:  
-   - Improved thermal management for MOSFETs  
-   - Alternative MOSFET packages for compact layouts  
-   - Additional protection circuits for long LED strips  
-   - Firmware features for advanced lighting effects  
-4. Test your changes thoroughly  
-5. Submit a pull request with detailed description  
-
-## Areas for Contribution
-
-1. ⚡ Power distribution optimization  
-2. 📡 Wireless control firmware improvements  
-3. 🔥 Thermal dissipation strategies for MOSFETs and regulators  
-4. 🏠 Enclosure and mechanical design for installation  
-5. 📊 Integration with smart home platforms  
-6. 🔧 Manufacturing and assembly improvements  
+The intended current ratings are design targets and must not be treated as validated operating limits.
 
 ## License
-This project is licensed under the CERN Open Hardware Licence Version 2 - Weakly Reciprocal (CERN-OHL-W-2.0).
-See the [CERN-OHL-W-2.0 ↗](https://gitlab.com/ohwr/project/cernohl/-/wikis/uploads/82b567f43ce515395f7ddbfbad7a8806/cern_ohl_w_v2.txt) file for more information.
+
+Licensed under CERN-OHL-W-2.0.
